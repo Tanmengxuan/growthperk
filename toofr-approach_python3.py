@@ -86,7 +86,7 @@ def search(query, output_filename):
 
             results = soup.findAll('li', { "class" : "b_algo" }) #list, class-tagsb_algo
             for result in results:
-                print(result)
+                #print(result)
                 # print str(result.find('a')).split('"')[1]
                 writefile.write(str(result.find('a')).split('"')[3]+"\n")
             number+=11
