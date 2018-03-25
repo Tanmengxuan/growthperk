@@ -93,8 +93,8 @@ def search(query, output_filename):
 
 if __name__=='__main__':
 
-    print(xray_linkedin_url_bing("HR Business Partner","","Singapore"))
-    search(xray_linkedin_url_bing("HR Business Partner","","Singapore"), "outputfile-HRBizPrac.txt")
+    print(xray_linkedin_url_bing("Business Development Manager","","New York"))
+    search(xray_linkedin_url_bing("Business Development Manager","","New York"), "outputfile-BDM_NY.txt")
     # print(xray_linkedin_url_bing("COO", "", "Singapore"))
     # search(xray_linkedin_url_bing("COO", "", "Singapore"), "outputfile-COO.txt")
 
