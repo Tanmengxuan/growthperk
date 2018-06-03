@@ -10,8 +10,8 @@ from selenium import webdriver
 import csv
 import random
 
-driver = webdriver.Chrome(executable_path=r"/home/mostafa/chromedriver") #I actually used the chromedriver and did not test firefox, but it should work.
-#driver = webdriver.Firefox()
+#driver = webdriver.Chrome(executable_path=r"/home/mostafa/chromedriver") #I actually used the chromedriver and did not test firefox, but it should work.
+driver = webdriver.Firefox()
 
 #url = driver.command_executor._url  
 #session_id = driver.session_id
@@ -23,27 +23,30 @@ driver = webdriver.Chrome(executable_path=r"/home/mostafa/chromedriver") #I actu
 #        # Skip the NEW_SESSION command issued by the original driver
 #        # and set only some required attributes
 #        self.w3c = True
-csvpath = '/home/mostafa/Desktop/growthperk/models/BDM_NY.csv'
+csvpath = '/home/mostafa/Desktop/growthperk/models/BDM_Boston_0416.csv'
 outFile = open(csvpath,"wb")
 csvFile = csv.writer(outFile, delimiter='\t') 
 csvFile.writerow(["name", "company", "title", "url"])
 
 
 
-file_path = 'outputfile-BDM_NY.txt'
-
+file_path = 'outputfile-BDM_Boston.txt' #length:854
+count = 650 
 with open(file_path) as f:
     profile_link = f.readlines()
 
 
 #profile_link=[ "https://sg.linkedin.com/in/ashley-chua", "https://www.linkedin.com/in/johnsmith1","https://sg.linkedin.com/in/garyheng"]
 
-for i in profile_link:
+for i in profile_link[650:700]:
     #driver = SessionRemote(command_executor=profile_link, desired_capabilities={})
     #session_id = driver.session_id
     try:
-        sleeptime = random.randint(20,70)
+        print count
+        count += 1
+        sleeptime = random.randint(10,200)
         print "please wait for: " + str(sleeptime)
+        print i
         driver.get(i)
         time.sleep(sleeptime)
         html=driver.page_source
